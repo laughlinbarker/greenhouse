@@ -8,10 +8,6 @@ const char pass[] = WIFI_PASSWORD; // your network password
 OneWire oneWire(oneWire_bus_pin);
 DallasTemperature sensors(&oneWire);
 
-WiFiUDP udp;
-
-WiFiClient client;
-
 void bsp::initialize_board()
 {
     Serial.begin(115200);
@@ -24,16 +20,6 @@ void bsp::initialize_board()
 DallasTemperature& bsp::get_sensors()
 {
     return sensors;
-}
-
-WiFiUDP& bsp::get_udp()
-{
-    return udp;
-}
-
-WiFiClient& bsp::get_client()
-{
-    return client;
 }
 
 void init_wifi(const char* ssid, const char* pass)
